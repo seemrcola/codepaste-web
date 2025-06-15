@@ -8,6 +8,33 @@ interface CodeEditorProps {
   onToggleFullscreen?: () => void
 }
 
+const themes = {
+  light: {
+    name: '浅色',
+    bg: 'bg-white',
+    textColor: 'text-gray-800',
+    borderColor: 'border-gray-200'
+  },
+  dark: {
+    name: '深色',
+    bg: 'bg-gray-900',
+    textColor: 'text-gray-100',
+    borderColor: 'border-gray-700'
+  },
+  blue: {
+    name: '蓝色',
+    bg: 'bg-blue-50',
+    textColor: 'text-blue-900',
+    borderColor: 'border-blue-200'
+  },
+  green: {
+    name: '绿色',
+    bg: 'bg-green-50',
+    textColor: 'text-green-900',
+    borderColor: 'border-green-200'
+  }
+}
+
 function CodeEditor(props: CodeEditorProps) {
   console.log('render CodeEditor')
   
@@ -18,33 +45,6 @@ function CodeEditor(props: CodeEditorProps) {
   const [copySuccess, setCopySuccess] = useState(false)
   const [editingCode, setEditingCode] = useState('')
   const [saveSuccess, setSaveSuccess] = useState(false)
-
-  const themes = {
-    light: {
-      name: '浅色',
-      bg: 'bg-white',
-      textColor: 'text-gray-800',
-      borderColor: 'border-gray-200'
-    },
-    dark: {
-      name: '深色',
-      bg: 'bg-gray-900',
-      textColor: 'text-gray-100',
-      borderColor: 'border-gray-700'
-    },
-    blue: {
-      name: '蓝色',
-      bg: 'bg-blue-50',
-      textColor: 'text-blue-900',
-      borderColor: 'border-blue-200'
-    },
-    green: {
-      name: '绿色',
-      bg: 'bg-green-50',
-      textColor: 'text-green-900',
-      borderColor: 'border-green-200'
-    }
-  }
 
   const currentTheme = themes[theme as keyof typeof themes]
 

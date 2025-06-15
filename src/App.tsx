@@ -1,10 +1,13 @@
-import Search from './pages/search'
+import React from 'react'
+import './index.css'
 
-function App() {
+const App: React.FC = () => {
   return (
-    <>
-      <Search />
-    </>
+    <div className="App">
+      <main>
+        {/* 主要内容区域 */}
+      </main>
+    </div>
   )
 }
 
