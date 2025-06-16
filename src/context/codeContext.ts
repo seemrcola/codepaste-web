@@ -26,7 +26,7 @@ function useCodeContext() {
   }
 
   const handleDeleteCategory = async (category: Category) => {
-    await deleteCategory(category.id)
+    await deleteCategory(category.id!)
     context.categories = await getAllCategories()
   }
 
