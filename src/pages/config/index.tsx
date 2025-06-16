@@ -159,6 +159,7 @@ function ConfigPage() {
         }`}>
           <CodeList 
             snippets={snippets}
+            currentCategory={currentCategory}
             currentSnippet={currentSnippet}
             onSelectSnippet={setCurrentSnippet}
             onAddSnippet={handleAddSnippet}

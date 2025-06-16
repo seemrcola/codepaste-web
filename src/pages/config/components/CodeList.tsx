@@ -5,8 +5,9 @@ import CloseIcon from './svg/CloseIcon'
 import CodeIcon from './svg/CodeIcon'
 import DeleteIcon from './svg/DeleteIcon'
 import { confirm } from '@/components/ui/Confirm'
+import { message } from '@/components/ui/Message'
 
-import type { Snippet } from '@/db'
+import type { Snippet, Category } from '@/db'
 
 const getTypeColor = (type: string) => {
   const colors = {
@@ -27,6 +28,7 @@ const getTypeColor = (type: string) => {
 interface CodeListProps {
   snippets: Snippet[]
   currentSnippet: Snippet | null
+  currentCategory: Category | null
   onAddSnippet: (snippet: Partial<Snippet>) => void
   onSelectSnippet: (snippet: Snippet) => void
   onDeleteSnippet: (snippet: Snippet) => void
@@ -44,6 +46,10 @@ function CodeList(props: CodeListProps) {
   const [searchQuery, setSearchQuery] = useState('')
 
   const handleAddCode = async () => {
+    if(!props.currentCategory) {
+      message.error('请先选择一个分类')
+      return
+    }
     if (!formData.name?.trim() || !formData.code?.trim()) return
     await props.onAddSnippet(formData)
     // 重置表单
