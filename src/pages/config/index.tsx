@@ -1,4 +1,4 @@
-import Sidebar from './components/Sidebar'
+import Sidebar from './components/Category'
 import CodeList from './components/CodeList'
 import CodeEditor from './components/CodeEditor'
 import { useState, useEffect } from 'react'
